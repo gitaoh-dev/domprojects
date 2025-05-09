@@ -1,7 +1,9 @@
-class WordCounter {
+module.exports = class WordCounter {
 	constructor(inputText) {
 		this.inputText = inputText;
-		this.inputText.addEventListener('input', this.count);
+		this.inputText.addEventListener('input', () => {
+			this.count();
+		});
 	}
 	count() {
 		let wordStat = this.getWordStat(this.inputText.value.trim());

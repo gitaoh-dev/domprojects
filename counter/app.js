@@ -1,3 +1,4 @@
+const WordCounter = require("./counter")
 const inputText = document.querySelector('#text');
 const statElem = document.querySelector('#stat');
 

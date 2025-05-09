@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Word Counter</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-   
-<h1>Word Counter</h1>
-    <label for="text">Enter some text below:</label>
-    <textarea id="text" rows="10" cols="60"></textarea>
-    <div id="stat">You've written 0 words and 0 characters.</div>
-    <script src="js/word-counter.js"></script>
-    <script src="js/app.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>JavaScript Word Counter</title>
+		<link
+			rel="stylesheet"
+			href="../css/style.css"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<a href="http://www.javascripttutorial.net/">
+					<img
+						src="https://www.javascripttutorial.net/wp-content/uploads/2020/03/logo.png"
+					/>
+				</a>
+			</header>
+
+			<p>
+				<a
+					href="https://www.javascripttutorial.net/javascript-dom/javascript-word-counter/"
+					>&lt; Back to the Tutorial</a
+				>
+			</p>
+			<h1>Word Counter</h1>
+			<div class="form">
+				<label for="text">Enter some text below:</label>
+				<textarea
+					id="text"
+					rows="10"
+					cols="60"
+				></textarea>
+			</div>
+			<div id="stat">You've written 0 words and 0 characters.</div>
+		</div>
+		<!-- <script src="counter.js" async></script> -->
+		<script
+			src="app.js"
+			type="module"
+		></script>
+	</body>
 </html>
