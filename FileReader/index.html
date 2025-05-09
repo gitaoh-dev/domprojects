@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>FileReader API Demo - Image Upload Application</title>
+</head>
+<body>
+    <main>
+        <div class="dropzone">
+            <img src="upload.svg" alt="upload" width="60" />
+
+            <input type="file" class="files" id="images"
+                    accept="image/*"
+                    multiple />
+             <label for="images">Choose multiple images</label>
+
+            <h3>or drag & drop your PNG or JPEG files here</h3>
+        </div>
+        <div class="image-list"></div>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+</html>
