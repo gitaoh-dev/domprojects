@@ -10,10 +10,12 @@ if (import.meta.hot)
 		const request = indexedDB.open('CRM', 1); // Name, Version - Db
 
 		request.onerror = (e) => {
+			// @ts-ignore
 			console.error(e.target.errorCode);
 		};
 
 		request.onsuccess = (e) => {
+			// @ts-ignore
 			const db = e.target.result;
 			// ID
 			getContactById(db, 1);
@@ -46,6 +48,7 @@ if (import.meta.hot)
 
 		// Create object stores
 		request.onupgradeneeded = (e) => {
+			// @ts-ignore
 			let db = e.target.result;
 
 			// create the contacts object store
@@ -55,11 +58,13 @@ if (import.meta.hot)
 			});
 
 			// create an index on the email property
+			// @ts-ignore
 			let index = store.createIndex('email', 'email', {
 				unique: true,
 			});
 		};
 
+		// @ts-ignore
 		function insertContact(db, contact) {
 			// create a new Transaction
 			const txn = db.transaction('Contacts', 'readwrite');
@@ -71,11 +76,13 @@ if (import.meta.hot)
 			let query = store.put(contact);
 
 			// Handle success cas
+			// @ts-ignore
 			query.onsuccess = function (e) {
 				console.log(e);
 			};
 
 			// Handle the error case
+			// @ts-ignore
 			query.onerror = function (e) {
 				console.log(e.target.errorCode);
 			};
@@ -87,15 +94,18 @@ if (import.meta.hot)
 		}
 
 		// Read data from the object store by KEY
+		// @ts-ignore
 		function getContactById(db, id) {
 			const txn = db.transaction('Contacts', 'readonly');
 			const store = txn.objectStore('Contacts');
 			let query = store.get(id);
+			// @ts-ignore
 			query.onsuccess = function (e) {
 				if (!e.target.result)
 					console.log(`The Contact with #${id} not found`);
 				else console.table(e.target.result);
 			};
+			// @ts-ignore
 			query.onerror = function (e) {
 				console.error(e.target.errorCode);
 			};
@@ -104,6 +114,7 @@ if (import.meta.hot)
 			};
 		}
 
+		// @ts-ignore
 		function getContactByEmail(db, email) {
 			const txn = db.transaction('Contacts', 'readonly');
 			const store = txn.objectStore('Contacts');
@@ -114,9 +125,11 @@ if (import.meta.hot)
 			let query = index.get(email);
 
 			// return the result object on success
+			// @ts-ignore
 			query.onsuccess = function (e) {
 				console.log('Data:', e.target.result);
 			};
+			// @ts-ignore
 			query.onerror = function (e) {
 				console.error('Error:', e.target.errorCode);
 			};
@@ -128,10 +141,12 @@ if (import.meta.hot)
 		}
 
 		// Read All data from an object store
+		// @ts-ignore
 		function getAllContacts(db) {
 			const txn = db.transaction('Contacts', 'readonly');
 			const objectStore = txn.objectStore('Contacts');
 			const c = objectStore.openCursor();
+			// @ts-ignore
 			c.onsuccess = (event) => {
 				let cursor = event.target.result;
 				if (cursor) {
@@ -148,6 +163,7 @@ if (import.meta.hot)
 			};
 		}
 
+		// @ts-ignore
 		function deleteContact(db, id) {
 			// Create a new transaction
 			const txn = db.transaction('Contacts', 'readwrite');
@@ -157,11 +173,13 @@ if (import.meta.hot)
 			let query = store.delete(id);
 
 			// Handle the success case
+			// @ts-ignore
 			query.onsuccess = function (e) {
 				console.log(e);
 			};
 
 			// Handle the error case
+			// @ts-ignore
 			query.onerror = function (e) {
 				console.log(e.target.errorCode);
 			};
